@@ -1,8 +1,8 @@
-const ayahs = require("../model/ayah");
+const surah = require("../model/surah");
 const helper = require("../helper/response");
 
 module.exports = {
-  addAyahs: (req, res) => {
+  addSurah: (req, res) => {
     let data = {
       name: req.body.name,
       englishName: req.body.englishName,
@@ -10,8 +10,8 @@ module.exports = {
       revelationType: req.body.revelationType,
     };
 
-    ayahs
-      .addAyahs(data)
+    surah
+      .addSurah(data)
       .then((result) => {
         helper.response(res, "Success Input Data", data, 200);
       })
@@ -19,14 +19,14 @@ module.exports = {
         helper.response(res, "Something Wrong", null, 401);
       });
   },
-  getAyahs: (req, res) => {
-    ayahs
-      .getAyahs()
+  getSurah: (req, res) => {
+    surah
+      .getSurah()
       .then((result) => {
-        helper.response(res, "Success Get Ayahs", result, 200);
+        helper.response(res, "Success Get Surah", result, 200);
       })
       .catch((err) => {
-        helper.response(res, "Failed Get Ayahs");
+        helper.response(res, "Failed Get Surah");
       });
   },
 };

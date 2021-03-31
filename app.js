@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const port = 3000;
-const ayahs = require("./src/route/ayah");
+const surah = require("./src/route/surah");
 const logger = require("morgan");
 app.use(
   bodyParser.urlencoded({
@@ -23,6 +23,6 @@ app.listen(port, () => {
   console.log("Server On Using Port", port);
 });
 
-app.use("/api/v1", ayahs);
+app.use("/api/v1", surah);
 
 module.exports = app;
